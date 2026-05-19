@@ -13,12 +13,32 @@ y que los algoritmos básicos de satisfacción de restricciones puedan utilizars
 
 Lo que hay ya desarrollado es lo siguiente:
 
-1. En el archivo `csp.py` se define la clase ProblemaCSP así como los algoritmos de solución vistos en clase.
+1. En el archivo `csps.py` se define la clase ProblemaCSP así como los algoritmos de solución vistos en clase.
 
 2. En el archivo `nreinasCSP.py` se desarrolla el problema de las N Reinas y se compara la solución utilizando diferentes valores de N y diferentes tipos de consistencia.
 
-3. En el archivo `sudoku.py` se ofrece una explicación breve del juego del sudoku, se desarrolla como un problema de satisfacción de restricciones y se prueban dos sudokus considerados de "experto" para ver que es realmente un problema muy trivial a resolver.
+3. En el archivo `sudoku.py` se ofrece una explicación breve del juego del sudoku, se desarrolla como un problema de satisfacción de restricciones y se prueban dos sudokus considerados de nivel *experto* para ver que es realmente un problema muy trivial a resolver.
 
-## El proyectito retador
+## Diseñando crucigramas
 
-A desarrollar todavía
+Con el fin de dar énfasis en el problema del modelado de CSP, más que en los algoritmos de solución, en esta actividad se propone resolver el problema de construcción de crucigramas a partir de un conjunto determinado de palabras. Para esto se va a tener de entrada dos archivos `verticales.txt` y `horizontales.txt`, en los cuales van a venir una lista de palabras que se quieren usar en un crucigrama en forma vertical y horizontal, respectivamente.
+
+El resultado que se busca es como colocar las palabras horizontales y verticales en una retícula de $n \times m$ (es necesario definir $n$ y $m$) de tal manera que cumplan con los requerimientos de un crucigrama, esto es:
+
+- Todas las palabras en horizontal cruzan en una letra común con *al menos* una palabra en forma vertical, y viceversa.
+- Una palabra en vertical no puede ir pegada a otra palabra en forma vertical (al menos debe haber una columna entre las dos si se tocan), y respectivamente en forma horizontal.
+- No pueden translaparse palabras entre si.
+- Si no pude caber en una retícula de $n \times m$ debe de avisar para saber que se necesita otra retícula más grande.
+
+Para hacer el modelo es necesario establecer:
+
+- Variables (como describirlas ¿Por palabras o por estado?)
+- Dominios (En funcion de las variables y como se representarían en una retícula)
+- Restricciones unarias
+- Restricciones binarias
+- Restricciones globales y su conversión a restricciones binarias
+- Vecinos 
+
+Agrega en este archivo el modelo que vas a usar, y prográmalo en `crucigramas.py`, prueba para un crucigrama con palabras que tu consideres. Recuerda no usar solo palabras cortas o largas, ya que se dificulta la generación del crucigrama.
+
+
